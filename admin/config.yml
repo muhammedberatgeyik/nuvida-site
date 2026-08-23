@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Yazılar"
+    files:
+      - name: "posts"
+        label: "Tüm Yazılar"
+        file: "content/posts.json"
+        fields:
+          - name: "posts"
+            label: "Yazılar"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Kısa Özet", name: "excerpt", widget: "text"}
+              - {label: "Kategori", name: "category", widget: "select", options: ["Deneme", "Düşünceler", "Gündelik Hayat", "Kültür", "Notlar"]}
+              - {label: "Tarih", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+              - {label: "Yazının Tamamı", name: "body", widget: "markdown"}
